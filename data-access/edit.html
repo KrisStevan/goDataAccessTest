@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>First Test Golang</title>
+    </head>
+    <body>
+        <h1>Edit Album</h1>
+        <form action="/save/{{.ID}}" method="POST">
+            <p>Title : <input type="text" name="title" value="{{.Title}}"></p>
+            <p>Artist : <input type="text" name="artist" value="{{.Artist}}"></p>
+            <p>Price : <input type="text" name="price" value="{{.Price}}"></p>
+            <p>Local : <input type="checkbox" name="local_fg" {{if .LocalFg}}checked{{end}}></p>
+
+            <button type="submit">Save</button>
+            <a href="/view">
+                <button>Cancel</button>
+            </a>
+        </form>
+    </body>
+</html>
