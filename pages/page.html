@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="/static/js/jsfuncs.js"></script>
+        <link rel="stylesheet" href="/static/design/design.css">
+        <title>Test Crud</title>
+    </head>
+    <body>
+        <nav>
+            <header>
+                <div class="logo-icon"></div>
+            </header>
+
+            <section class="nav-container">
+                <a href="#top-hits" class="nav-item">Menu 1</a>
+                <a href="#other-menu" class="nav-item">Menu 2</a>
+            </section>
+        </nav>
+
+        <main style="background-color: #856a58;">
+            <h1>Albums</h1>
+            <div>
+                <label for="artist">Search Artist:</label>
+                <input type="text" id="artist" name="artist">
+                <button onclick="searchArtist()">Search</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Price</th>
+                    <th>Local?</th>
+                    <th></th>
+                </tr>
+                {{range .}}
+                <tr>
+                    <td>{{.Title}}</td>
+                    <td>{{.Artist}}</td>
+                    <td>{{.Price}}</td>
+                    <td>{{.LocalFg}}</td>
+                    <td>
+                        <a href="/edit/{{.ID}}">Edit</a>
+                        <a href="/delete/{{.ID}}">Delete</a>
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+            <a href="/create">
+                <button>Create New Album</button>
+            </a>
+        </main>
+
+        <footer class="footer-container" id="footer-container">
+            <div class="footer-content">
+                <p>© 2024 My Music Store. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
